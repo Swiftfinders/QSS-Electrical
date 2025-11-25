@@ -16,16 +16,16 @@
         }
 
         :root {
-            --navy: #1a2940;
+            --cream: #F8F5F0;
+            --off-white: #FAFAF8;
+            --charcoal: #1A1A1A;
+            --dark-gray: #2D2D2D;
             --electric-blue: #0066FF;
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --text-light: #6c757d;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-            --transition: all 0.3s ease;
+            --light-gray: #E5E5E5;
+            --border-gray: #D9D9D9;
+            --text-gray: #6B6B6B;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -33,46 +33,50 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--charcoal);
             background: var(--white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--navy);
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
         }
 
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.75rem; }
+        h1 { font-size: 4rem; }
+        h2 { font-size: 3rem; }
+        h3 { font-size: 2rem; }
         h4 { font-size: 1.5rem; }
         h5 { font-size: 1.25rem; }
         h6 { font-size: 1rem; }
 
         p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            font-size: 1.125rem;
+            line-height: 1.8;
         }
 
         /* ===== UTILITIES ===== */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         .section.visible {
@@ -82,54 +86,65 @@
 
         .btn {
             display: inline-block;
-            padding: 16px 40px;
-            font-size: 1.1rem;
+            padding: 18px 48px;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             transition: var(--transition);
             cursor: pointer;
             border: none;
             text-align: center;
+            letter-spacing: 0.01em;
         }
 
         .btn-primary {
             background: var(--electric-blue);
             color: var(--white);
-            box-shadow: var(--shadow-md);
         }
 
         .btn-primary:hover {
             background: #0052cc;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
-            background: var(--white);
-            color: var(--navy);
-            border: 2px solid var(--navy);
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
         }
 
         .btn-secondary:hover {
-            background: var(--navy);
+            background: var(--charcoal);
             color: var(--white);
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
         .section-title p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 1.25rem;
+            color: var(--text-gray);
         }
 
         /* ===== NAVIGATION ===== */
@@ -139,30 +154,29 @@
             left: 0;
             right: 0;
             background: var(--white);
-            box-shadow: var(--shadow-sm);
             z-index: 1000;
             transition: var(--transition);
+            border-bottom: 1px solid transparent;
         }
 
         .navbar.scrolled {
-            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--light-gray);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 24px 40px;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--charcoal);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            letter-spacing: -0.02em;
         }
 
         .logo span {
@@ -172,229 +186,258 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 48px;
             align-items: center;
         }
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--charcoal);
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition);
             position: relative;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--electric-blue);
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
         }
 
         .nav-menu a:hover {
             color: var(--electric-blue);
         }
 
+        .nav-cta {
+            padding: 12px 32px !important;
+            background: var(--charcoal);
+            color: var(--white) !important;
+            border-radius: 6px;
+        }
+
+        .nav-cta:hover {
+            background: var(--electric-blue) !important;
+        }
+
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
+            gap: 6px;
         }
 
         .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--navy);
+            width: 28px;
+            height: 2px;
+            background: var(--charcoal);
             transition: var(--transition);
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
             margin-top: 80px;
-            background: linear-gradient(135deg, rgba(26, 41, 64, 0.95), rgba(0, 102, 255, 0.85)),
-                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80') center/cover;
-            color: var(--white);
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: var(--off-white);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(0, 102, 255, 0.3), transparent);
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .hero-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .hero h1 {
-            color: var(--white);
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 4.5rem;
+            line-height: 1.1;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.95);
+            color: var(--charcoal);
+            letter-spacing: -0.03em;
         }
 
-        .hero .trust-badges {
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 540px;
+        }
+
+        .hero-cta {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        .trust-badge {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .trust-badge::before {
-            content: '✓';
-            background: var(--electric-blue);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        .about {
-            background: var(--white);
-        }
-
-        .trust-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .trust-point {
-            background: var(--light-bg);
-            padding: 30px;
+        .hero-image {
+            position: relative;
+            height: 650px;
             border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== TRUST METRICS ===== */
+        .trust-metrics {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .metric-item {
             text-align: center;
-            transition: var(--transition);
-            border: 2px solid transparent;
         }
 
-        .trust-point:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--electric-blue);
-        }
-
-        .trust-point-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .trust-point h4 {
-            color: var(--navy);
+        .metric-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--charcoal);
             margin-bottom: 0.5rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
         }
 
-        .trust-point p {
-            color: var(--text-light);
+        .metric-label {
             font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 500;
         }
 
         /* ===== SERVICES SECTION ===== */
         .services {
-            background: var(--light-bg);
+            background: var(--cream);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
 
-        .service-card {
+        .service-item {
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            cursor: pointer;
         }
 
-        .service-card:hover {
+        .service-item:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
         }
 
         .service-image {
             width: 100%;
-            height: 220px;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-image img {
+            transform: scale(1.05);
         }
 
         .service-content {
-            padding: 30px;
+            padding: 32px;
         }
 
         .service-content h3 {
-            color: var(--navy);
-            margin-bottom: 1rem;
             font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
         }
 
         .service-content p {
-            color: var(--text-light);
             font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            background: var(--white);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .step-item {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .step-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .step-item p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
         }
 
         /* ===== PORTFOLIO SECTION ===== */
         .portfolio {
-            background: var(--white);
+            background: var(--off-white);
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            height: 300px;
+            border-radius: 8px;
+            height: 380px;
             cursor: pointer;
-            box-shadow: var(--shadow-sm);
         }
 
         .gallery-item img {
@@ -405,7 +448,7 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .gallery-overlay {
@@ -413,8 +456,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(26, 41, 64, 0.9), transparent);
-            padding: 20px;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.85), transparent);
+            padding: 32px;
             transform: translateY(100%);
             transition: var(--transition);
         }
@@ -425,101 +468,124 @@
 
         .gallery-overlay h4 {
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            margin: 0;
         }
 
         /* ===== TESTIMONIALS SECTION ===== */
         .testimonials {
-            background: var(--navy);
-            color: var(--white);
+            background: var(--white);
         }
 
-        .testimonials .section-title h2,
-        .testimonials .section-title p {
-            color: var(--white);
+        .testimonial-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
         }
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
         }
 
-        .stars {
-            color: #ffc107;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .testimonial-stars {
+            color: var(--electric-blue);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .testimonial-text {
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.75rem;
+            line-height: 1.6;
+            color: var(--charcoal);
+            font-weight: 500;
+            margin-bottom: 3rem;
             font-style: italic;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
         }
 
         .testimonial-author {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 0.5rem;
         }
 
-        .author-info h5 {
-            color: var(--white);
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+        .testimonial-author h5 {
+            font-size: 1.125rem;
+            color: var(--charcoal);
             margin: 0;
+        }
+
+        .testimonial-author p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            background: var(--electric-blue);
+            width: 32px;
+            border-radius: 6px;
         }
 
         /* ===== WHY CHOOSE SECTION ===== */
         .why-choose {
-            background: var(--light-bg);
+            background: var(--cream);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
         }
 
-        .feature-box {
+        .feature-item {
             text-align: center;
-            padding: 40px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
         }
 
         .feature-icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
         }
 
-        .feature-box h3 {
-            color: var(--navy);
+        .feature-item h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: var(--charcoal);
         }
 
-        .feature-box p {
-            color: var(--text-light);
+        .feature-item p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
         }
 
         /* ===== QUOTE FORM SECTION ===== */
@@ -527,37 +593,49 @@
             background: var(--white);
         }
 
+        .quote-section .section-title {
+            margin-bottom: 60px;
+        }
+
         .form-container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--light-bg);
-            padding: 50px;
+            background: var(--off-white);
+            padding: 60px;
             border-radius: 12px;
-            box-shadow: var(--shadow-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 600;
-            color: var(--navy);
+            color: var(--charcoal);
+            font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 16px 20px;
+            border: 2px solid var(--border-gray);
+            border-radius: 6px;
             font-size: 1rem;
             font-family: inherit;
             transition: var(--transition);
             background: var(--white);
+            color: var(--charcoal);
         }
 
         .form-group input:focus,
@@ -565,7 +643,6 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--electric-blue);
-            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
         }
 
         .form-group textarea {
@@ -575,151 +652,206 @@
 
         .radio-group {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
         .radio-option {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .radio-option input[type="radio"] {
             width: auto;
+            margin: 0;
+        }
+
+        .radio-option label {
+            margin: 0 !important;
+            font-weight: 500 !important;
         }
 
         .checkbox-group {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .checkbox-group input[type="checkbox"] {
             width: auto;
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            margin: 0 !important;
+            font-weight: 500 !important;
         }
 
         .form-actions {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+        }
+
+        .form-actions .btn-primary {
+            padding: 20px 60px;
+            font-size: 1.125rem;
         }
 
         /* ===== FOOTER ===== */
         .footer {
-            background: var(--navy);
+            background: var(--charcoal);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-section h4 {
             color: var(--white);
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            font-size: 1.125rem;
         }
 
         .footer-section p,
         .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
         .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-logo span {
             color: var(--electric-blue);
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .contact-icon {
-            font-size: 1.2rem;
-            color: var(--electric-blue);
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 16px;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            text-decoration: none;
+            color: var(--white);
         }
 
         .social-link:hover {
             background: var(--electric-blue);
-            transform: translateY(-3px);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-bottom p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-image {
+                height: 500px;
+            }
+
+            .services-grid,
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
+            .container {
+                padding: 0 24px;
             }
 
             .section {
-                padding: 50px 0;
+                padding: 60px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.25rem;
             }
 
             .navbar .container {
-                padding: 15px 20px;
+                padding: 20px 24px;
             }
 
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 73px;
                 flex-direction: column;
                 background: var(--white);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
-                box-shadow: var(--shadow-lg);
-                padding: 20px 0;
-                gap: 20px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                padding: 30px 0;
+                gap: 24px;
             }
 
             .nav-menu.active {
@@ -732,43 +864,48 @@
 
             .services-grid,
             .gallery-grid,
-            .testimonials-grid,
-            .features-grid {
+            .metrics-grid,
+            .footer-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .form-container {
-                padding: 30px 20px;
+                padding: 40px 24px;
             }
 
-            .radio-group {
-                flex-direction: column;
-            }
-
-            .trust-points {
+            .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .testimonial-text {
+                font-size: 1.25rem;
+            }
+
+            .metric-number {
+                font-size: 3rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
             h1 { font-size: 2rem; }
             h2 { font-size: 1.75rem; }
 
-            .hero {
-                padding: 80px 0;
-            }
-
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
 
             .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
+                padding: 16px 36px;
+                font-size: 0.95rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
             }
         }
     </style>
@@ -779,11 +916,10 @@
         <div class="container">
             <a href="#home" class="logo">QSS <span>Electrical</span></a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#quote" class="btn btn-primary" style="padding: 10px 25px;">Get Quote</a></li>
+                <li><a href="#quote" class="nav-cta">Get Quote</a></li>
             </ul>
             <div class="mobile-menu-toggle" id="mobileToggle">
                 <span></span>
@@ -795,46 +931,37 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content container">
-            <h1>Southern Ontario's Premier Electrical Contractor</h1>
-            <p class="subtitle">Professional-grade electrical services you can trust. Licensed, insured, and available 24/7.</p>
-            <a href="#quote" class="btn btn-primary">Get Your Free Quote Today</a>
-            <div class="trust-badges">
-                <div class="trust-badge">Licensed</div>
-                <div class="trust-badge">Insured</div>
-                <div class="trust-badge">24/7 Available</div>
-                <div class="trust-badge">Professional Grade Work</div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">AVAILABLE 24/7</div>
+                <h1>Professional Electrical Services You Can Trust</h1>
+                <p>Licensed, insured, and dedicated to delivering exceptional electrical solutions for residential and commercial properties across Southern Ontario.</p>
+                <div class="hero-cta">
+                    <a href="#quote" class="btn btn-primary">Get Free Quote</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Professional electrician working on electrical panel">
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about section" id="about">
+    <!-- Trust Metrics -->
+    <section class="trust-metrics">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose QSS Electrical?</h2>
-                <p>With over two decades of experience serving Southern Ontario, we deliver exceptional electrical solutions that prioritize safety, quality, and customer satisfaction.</p>
-            </div>
-            <div class="trust-points">
-                <div class="trust-point">
-                    <div class="trust-point-icon">🔒</div>
-                    <h4>Licensed & Insured</h4>
-                    <p>Fully licensed Master Electricians with comprehensive liability insurance for your peace of mind.</p>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-number">25+</div>
+                    <div class="metric-label">Years of Experience</div>
                 </div>
-                <div class="trust-point">
-                    <div class="trust-point-icon">⚡</div>
-                    <h4>24/7 Emergency Service</h4>
-                    <p>Electrical emergencies don't wait. Neither do we. Available around the clock for urgent repairs.</p>
+                <div class="metric-item">
+                    <div class="metric-number">500+</div>
+                    <div class="metric-label">Projects Completed</div>
                 </div>
-                <div class="trust-point">
-                    <div class="trust-point-icon">⏱️</div>
-                    <h4>Quick Response Time</h4>
-                    <p>Same-day service available. We arrive on time and complete projects efficiently without compromising quality.</p>
-                </div>
-                <div class="trust-point">
-                    <div class="trust-point-icon">✓</div>
-                    <h4>Quality Guaranteed</h4>
-                    <p>We stand behind our work with comprehensive warranties and a commitment to excellence on every job.</p>
+                <div class="metric-item">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Customer Satisfaction</div>
                 </div>
             </div>
         </div>
@@ -844,51 +971,92 @@
     <section class="services section" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Electrical Services</h2>
-                <p>Comprehensive electrical solutions for residential and commercial properties throughout Southern Ontario.</p>
+                <div class="section-label">WHAT WE OFFER</div>
+                <h2>Comprehensive Electrical Solutions</h2>
+                <p>From residential wiring to commercial installations, we provide expert electrical services tailored to your needs.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Residential Wiring" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Residential Wiring">
+                    </div>
                     <div class="service-content">
                         <h3>Residential Wiring</h3>
-                        <p>Complete home wiring solutions including new construction, renovations, and rewiring for older homes. Safe, code-compliant installations.</p>
+                        <p>Complete home wiring solutions for new construction, renovations, and upgrades. Safe, code-compliant installations.</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Commercial Installations" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Commercial Installations">
+                    </div>
                     <div class="service-content">
                         <h3>Commercial Installations</h3>
-                        <p>Professional electrical systems for offices, retail spaces, and industrial facilities. Minimize downtime with expert planning.</p>
+                        <p>Professional electrical systems for offices, retail, and industrial facilities with minimal downtime.</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Panel Upgrades" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1621905252472-e1e0543ee9b5?w=600&q=80" alt="Panel Upgrades">
+                    </div>
                     <div class="service-content">
                         <h3>Panel Upgrades</h3>
-                        <p>Upgrade outdated electrical panels to modern, safer systems. Increase capacity and improve home safety with professional panel replacement.</p>
+                        <p>Modern, safer electrical panels that increase capacity and improve overall home safety.</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80" alt="Emergency Repairs" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80" alt="Emergency Repairs">
+                    </div>
                     <div class="service-content">
                         <h3>Emergency Repairs</h3>
-                        <p>24/7 emergency electrical repair service. Power outages, electrical fires, and urgent safety issues resolved quickly by experts.</p>
+                        <p>24/7 emergency electrical repair service for urgent safety issues and power outages.</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="EV Charger Installation" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="EV Charger Installation">
+                    </div>
                     <div class="service-content">
                         <h3>EV Charger Installation</h3>
-                        <p>Professional electric vehicle charging station installation for homes and businesses. Fast, safe, code-compliant EV charger setup.</p>
+                        <p>Professional electric vehicle charging station installation for homes and businesses.</p>
                     </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80" alt="Lighting Design" class="service-image">
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80" alt="Lighting Design">
+                    </div>
                     <div class="service-content">
                         <h3>Lighting Design</h3>
-                        <p>Custom lighting solutions that enhance ambiance and functionality. LED upgrades, landscape lighting, and smart home integration.</p>
+                        <p>Custom lighting solutions including LED upgrades, landscape lighting, and smart home integration.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works section">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-label">OUR PROCESS</div>
+                <h2>How It Works</h2>
+                <p>Simple, transparent process from initial contact to project completion.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Reach out via phone, email, or our online form. We respond within hours to schedule a consultation.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Get Free Quote</h3>
+                    <p>Our licensed electricians assess your project and provide a detailed, transparent quote with no hidden fees.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Expert Installation</h3>
+                    <p>We complete your project efficiently and safely, ensuring all work meets or exceeds electrical codes.</p>
                 </div>
             </div>
         </div>
@@ -898,7 +1066,8 @@
     <section class="portfolio section" id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>Our Recent Projects</h2>
+                <div class="section-label">OUR WORK</div>
+                <h2>Recent Projects</h2>
                 <p>A showcase of our premium electrical installations across Southern Ontario.</p>
             </div>
             <div class="gallery-grid">
@@ -911,29 +1080,29 @@
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&q=80" alt="Commercial lighting project">
                     <div class="gallery-overlay">
-                        <h4>Commercial Lighting Design</h4>
+                        <h4>Commercial Lighting</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Residential wiring installation">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Residential wiring">
                     <div class="gallery-overlay">
                         <h4>Residential Rewiring</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Smart home electrical system">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Smart home system">
                     <div class="gallery-overlay">
                         <h4>Smart Home Integration</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Industrial electrical installation">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="Industrial electrical">
                     <div class="gallery-overlay">
-                        <h4>Industrial Electrical System</h4>
+                        <h4>Industrial System</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b04eb8e?w=600&q=80" alt="Outdoor lighting installation">
+                    <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b04eb8e?w=600&q=80" alt="Outdoor lighting">
                     <div class="gallery-overlay">
                         <h4>Landscape Lighting</h4>
                     </div>
@@ -946,75 +1115,74 @@
     <section class="testimonials section" id="testimonials">
         <div class="container">
             <div class="section-title">
+                <div class="section-label">CLIENT REVIEWS</div>
                 <h2>What Our Clients Say</h2>
-                <p>Don't just take our word for it. Here's what our satisfied customers have to say.</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"QSS Electrical did an outstanding job upgrading our electrical panel. Professional, punctual, and their work quality is impeccable. Highly recommend for any electrical work!"</p>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h5>Michael Thompson</h5>
-                            <p>Mississauga, ON</p>
-                        </div>
+                        <h5>Michael Thompson</h5>
+                        <p>Mississauga, ON</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"We had an electrical emergency at 2 AM and QSS was there within the hour. Their technician was knowledgeable, efficient, and got our power back on quickly. True lifesavers!"</p>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h5>Sarah Chen</h5>
-                            <p>Toronto, ON</p>
-                        </div>
+                        <h5>Sarah Chen</h5>
+                        <p>Toronto, ON</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"From the initial quote to project completion, QSS Electrical exceeded our expectations. They installed our EV charger perfectly and explained everything clearly. Outstanding service!"</p>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h5>David Patel</h5>
-                            <p>Oakville, ON</p>
-                        </div>
+                        <h5>David Patel</h5>
+                        <p>Oakville, ON</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"Professional, reliable, and fair pricing. QSS rewired our entire home during our renovation and the quality is top-notch. They're our go-to electricians now!"</p>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h5>Jennifer Martinez</h5>
-                            <p>Burlington, ON</p>
-                        </div>
+                        <h5>Jennifer Martinez</h5>
+                        <p>Burlington, ON</p>
                     </div>
+                </div>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose QSS Section -->
+    <!-- Why Choose Section -->
     <section class="why-choose section">
         <div class="container">
             <div class="section-title">
+                <div class="section-label">WHY CHOOSE US</div>
                 <h2>The QSS Advantage</h2>
                 <p>Three pillars that make us Southern Ontario's most trusted electrical contractor.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-box">
+                <div class="feature-item">
                     <div class="feature-icon">🏆</div>
-                    <h3>20+ Years of Expertise</h3>
-                    <p>Two decades of electrical excellence serving Southern Ontario. Our experienced Master Electricians have seen it all and solved it all.</p>
+                    <h3>25+ Years of Expertise</h3>
+                    <p>Over two decades serving Southern Ontario. Our experienced Master Electricians have the knowledge and skills to handle any electrical challenge.</p>
                 </div>
-                <div class="feature-box">
+                <div class="feature-item">
                     <div class="feature-icon">✓</div>
                     <h3>Quality & Safety First</h3>
                     <p>Fully licensed, insured, and bonded. Every project meets or exceeds electrical code requirements with meticulous attention to safety.</p>
                 </div>
-                <div class="feature-box">
+                <div class="feature-item">
                     <div class="feature-icon">⚡</div>
-                    <h3>Same-Day Service Available</h3>
+                    <h3>Same-Day Service</h3>
                     <p>Need it done fast? We offer same-day service for urgent projects and are available 24/7 for emergencies. Quality work, delivered quickly.</p>
                 </div>
             </div>
@@ -1025,8 +1193,9 @@
     <section class="quote-section section" id="quote">
         <div class="container">
             <div class="section-title">
-                <h2>Get Your Free Quote</h2>
-                <p>Ready to start your electrical project? Fill out the form below and we'll get back to you within 24 hours.</p>
+                <div class="section-label">GET STARTED</div>
+                <h2>Request Your Free Quote</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours with a detailed quote.</p>
             </div>
             <div class="form-container">
                 <form name="contact-quote" method="POST" netlify netlify-honeypot="bot-field" action="/success/">
@@ -1035,33 +1204,35 @@
                         <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                     </p>
 
-                    <div class="form-group">
-                        <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" name="fullName" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="serviceType">Service Type *</label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="">-- Select a Service --</option>
-                            <option value="residential-wiring">Residential Wiring</option>
-                            <option value="commercial-installation">Commercial Installation</option>
-                            <option value="panel-upgrade">Panel Upgrade</option>
-                            <option value="emergency-repair">Emergency Repair</option>
-                            <option value="ev-charger">EV Charger Installation</option>
-                            <option value="lighting-design">Lighting Design</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Service Type *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">-- Select a Service --</option>
+                                <option value="residential-wiring">Residential Wiring</option>
+                                <option value="commercial-installation">Commercial Installation</option>
+                                <option value="panel-upgrade">Panel Upgrade</option>
+                                <option value="emergency-repair">Emergency Repair</option>
+                                <option value="ev-charger">EV Charger Installation</option>
+                                <option value="lighting-design">Lighting Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -1107,63 +1278,38 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>QSS Electrical</h4>
-                    <p>Southern Ontario's premier electrical contractor. Licensed, insured, and committed to excellence in every project.</p>
+                    <div class="footer-logo">QSS <span>Electrical</span></div>
+                    <p class="footer-description">Southern Ontario's premier electrical contractor. Licensed, insured, and committed to excellence in every project.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <span>f</span>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <span>📷</span>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <span>in</span>
-                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">f</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
                     </div>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <strong>Phone:</strong><br>
-                                <a href="tel:+19055551234">(905) 555-1234</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div>
-                                <strong>Email:</strong><br>
-                                <a href="mailto:info@qsselectrical.ca">info@qsselectrical.ca</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <strong>Service Area:</strong><br>
-                                Southern Ontario Region
-                            </div>
-                        </div>
-                    </div>
+                    <h4>Services</h4>
+                    <a href="#services">Residential Wiring</a>
+                    <a href="#services">Commercial Installations</a>
+                    <a href="#services">Panel Upgrades</a>
+                    <a href="#services">Emergency Repairs</a>
+                    <a href="#services">EV Chargers</a>
+                    <a href="#services">Lighting Design</a>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Business Hours</h4>
-                    <p><strong>Monday - Friday:</strong><br>7:00 AM - 7:00 PM</p>
-                    <p><strong>Saturday:</strong><br>8:00 AM - 5:00 PM</p>
-                    <p><strong>Sunday:</strong><br>Emergency Service Only</p>
-                    <p style="margin-top: 15px;"><strong>24/7 Emergency Service Available</strong></p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#about">About Us</a>
-                    <a href="#services">Our Services</a>
+                    <h4>Company</h4>
+                    <a href="#services">About Us</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#testimonials">Testimonials</a>
-                    <a href="#quote">Get a Quote</a>
+                    <a href="#quote">Get Quote</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong><br><a href="tel:+19055551234">(905) 555-1234</a></p>
+                    <p><strong>Email:</strong><br><a href="mailto:info@qsselectrical.ca">info@qsselectrical.ca</a></p>
+                    <p><strong>Hours:</strong><br>Mon-Fri: 7AM-7PM<br>24/7 Emergency Service</p>
                 </div>
             </div>
 
@@ -1230,6 +1376,34 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Testimonial Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Auto-rotate testimonials every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Click dots to navigate
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
             });
         });
     </script>
