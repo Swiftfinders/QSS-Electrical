@@ -1,0 +1,28 @@
+# Netlify Configuration for QSS Electrical Website
+
+[build]
+  publish = "."
+
+# Redirect rules
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+# Custom headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache static assets
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Form settings (Netlify Forms will auto-detect the form in HTML)
